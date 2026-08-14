@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "_site"
-SITE_URL = "https://livgently.com"
+SITE_URL = "https://mgrang.github.io/static-publishing"
 DESCRIPTION = "A restored archive of thoughtful stories about language, life, travel, money, and finding delight in the everyday."
 
 
@@ -100,7 +100,6 @@ def main() -> None:
     shutil.copytree(ROOT / "public", OUT)
     shutil.copy2(ROOT / "style.css", OUT / "style.css")
     (OUT / ".nojekyll").touch()
-    (OUT / "CNAME").write_text("livgently.com\n")
     (OUT / "index.html").write_text(layout(title="Livgently", description=DESCRIPTION, content=home(posts)))
     about_dir = OUT / "about"
     about_dir.mkdir()
